@@ -1,7 +1,7 @@
 # start from base
 FROM ubuntu:18.04
 
-LABEL maintainer="Prakhar Srivastav <prakhar@prakhar.me>"
+LABEL maintainer="Henrick Poliquin <hpoliquin@cofomo.com>"
 
 # install system-wide deps for python and node
 RUN apt-get -yqq update

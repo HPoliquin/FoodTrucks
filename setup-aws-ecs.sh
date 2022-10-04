@@ -7,7 +7,7 @@ ecs-cli configure --region ca-central-1 --cluster foodtrucks
 ecs-cli up --keypair ecs --capability-iam --size 1 --instance-type t2.medium
 
 # deploy
-cd aws-ecs && ecs-cli compose --file aws-compose.yml up
+cd aws-ecs && ecs-cli compose up
 
 # check
 ecs-cli ps

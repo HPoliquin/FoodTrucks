@@ -1,0 +1,21 @@
+version: '3'
+services:
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.4.3@sha256:739ec9d428869f16e9e02247d5082849ebb4302c87e0abf9f70971cbb40c3bab
+    ports:
+      - 9200:9200
+    restart: OnFailure
+    environment:
+      discovery_type: "single-node"
+      bootstrap_memory_lock: true
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+
+  web:
+    build: ./
+    image: acrfoodtrucks.azurecr.io/foodtrucks-web
+    container_name: foodtrucks-web
+    restart: OnFailure
+    ports:
+      - "80:80"
+    depends_on:
+      - es
